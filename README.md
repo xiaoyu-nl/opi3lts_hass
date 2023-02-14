@@ -31,7 +31,7 @@ docker-compose.yml: Configuration file for Orangepi 3 LTS + Home Assistant + Mos
   
 ### step 2, pull all docker images.
 
-* in a terimail run `sudo docker compose up -d ` with this command, all docker images will be downloaded. but all the images are need be to setup
+* in a terimail (in my case, in the folder sdcard/project) run `sudo docker compose up -d ` with this command, all docker images will be downloaded. but all the images are need be to setup
 
 ### step 3, setup mosquitto broker docker image
 * I followed this video https://www.youtube.com/watch?v=L26JY2NH-Ys
