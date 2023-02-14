@@ -1,0 +1,42 @@
+version: '3'
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./zigbee2mqtt_config/data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/serial/by-id/usb-Silicon_Labs_Sonoff_Zigbee_3.0_USB_Dongle_Plus_0001-if00-port0:/dev/ttyACM0
+    restart: unless-stopped
+    network_mode: host
+    ports:
+      - 8080:8080
+    privileged: true
+    environment:
+      - TZ=Europe/Amsterdam
+    group_add:
+      - dialout
+    user: 1000:1000
+
+  mosquitto:
+    image: eclipse-mosquitto
+    restart: always
+    network_mode: host
+    volumes:
+      - ./mosquitto_config/config:/mosquitto/config
+      - ./mosquitto_config/data:/mosquitto/data
+      - ./mosquitto_config/log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+
+  hass:
+    image: homeassistant/home-assistant
+    restart: always
+    network_mode: host
+    depends_on:
+      - zigbee2mqtt
+    volumes:
+      - ./hass_config:/config
+      - "/etc/localtime:/etc/localtime:ro"
