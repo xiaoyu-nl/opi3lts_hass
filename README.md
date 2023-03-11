@@ -77,7 +77,7 @@ serial:
 
 ### final step
 * login hass via http://192.168.X.X:8123, setup your admin account
-* add new intergration by searching mosquitto. fill in with your setup info. such as, add server: localhost
+* add new intergration by searching MQTT for mosquitto. fill in with your setup info. such as, add server: localhost
 * at this step, if you dont see any error message in docker images (via portainer.io), you should be able to add zigbee devices.
 * open http://192.168.x.x:8080, click permit join all, the paring your zigbee devices.
 
