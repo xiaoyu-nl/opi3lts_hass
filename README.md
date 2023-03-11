@@ -35,7 +35,7 @@ docker-compose.yml: Configuration file for Orangepi 3 LTS + Home Assistant + Mos
 
 ### step 3, setup mosquitto broker docker image
 * I followed this video https://www.youtube.com/watch?v=L26JY2NH-Ys
-  - setup mosquitto broker and users. copy mosquitto configuration file to your folder which in the step1
+  - setup mosquitto broker and users. copy mosquitto configuration file https://raw.githubusercontent.com/eclipse/mosquitto/master/mosquitto.conf to your folder which in the step1
   - add a user to mosquitto, 
     - login to docker image `sudo	docker exec -it YOURMOSQUITTODOCKERIMAGENAME sh`, if you install portainer.io, you can just via web interface to login.
     - in the new termial: `mosquitto_passwd /mosquitto/config/pwfile USERNAME`. if everything goes right, you should see one extra pwfile in your mosquitto config folder.
