@@ -9,4 +9,10 @@ wget https://github.com/rockchip-linux/rknpu2/raw/master/runtime/RK356X/Linux/li
 sudo mv librknnrt.so /usr/lib/librknnrt.so
 git clone https://github.com/rockchip-linux/rknn-toolkit2.git
 cd rknn-toolkit2/rknn_toolkit_lite2/packages/
+
+sudo apt install python3-venv
+python3 -m venv your_env_pad
+source /your_env_pad/bin/activate 
+(your_env)>> pip install opencv-python
+
 pip3 install rknn_toolkit_lite2-1.5.2-cp39-cp39-linux_aarch64.whl
